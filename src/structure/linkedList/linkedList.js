@@ -1,4 +1,4 @@
-class Node {
+export class Node {
   constructor(el) {
       // 保存元素
     this.element = el;

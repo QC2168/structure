@@ -37,7 +37,7 @@ export function isPrime(number) {
 export class HashTable {
   constructor() {
     this.storage = []; //数组储存元素
-    this.conut = 0; // 当前储存多少元素
+    this.count = 0; // 当前储存多少元素
     this.limit = 7; // 总个数  容量
   }
 
@@ -83,15 +83,15 @@ export class HashTable {
     //4. 没有覆盖  操作新增
     if (!overide) {
    bucket.push([key, value]);
-   this.conut++;
-      if (this.conut > this.limit * MAX_LOAD_FACTOR) {
+   this.count++;
+      if (this.count > this.limit * MAX_LOAD_FACTOR) {
         let newLimit = this.limit * 2;
         newLimit = this.getPrime(newLimit);
         this.resize(newLimit);
       }
     }
 
-    // !overide && this.conut > this.limit * MAX_LOAD_FACTOR;
+    // !overide && this.count > this.limit * MAX_LOAD_FACTOR;
     // let newLimit = this.limit * 2;
     // newLimit = this.getPrime(newLimit);
     // this.resize(newLimit);
@@ -128,8 +128,8 @@ export class HashTable {
       let tuple = bucket[i];
       if (tuple[0] === key) {
         bucket.splice(i, 1);
-        this.conut--;
-        if (this.limit > 8 && this.conut < this.limit * MIX_LOAD_FACTOR) {
+        this.count--;
+        if (this.limit > 8 && this.count < this.limit * MIX_LOAD_FACTOR) {
           let newLimit = Math.floor(this.limit / 2);
           newLimit = this.getPrime(newLimit);
           this.resize(newLimit);
@@ -141,11 +141,11 @@ export class HashTable {
   }
 
   isEmpty() {
-    return this.conut === 0;
+    return this.count === 0;
   }
 
   size() {
-    return this.conut;
+    return this.count;
   }
 
   // 扩容函数 or 缩小容量
@@ -155,7 +155,7 @@ export class HashTable {
     // 2. 重置属性
     this.limit = newLimit;
     this.storage = [];
-    this.conut = 0;
+    this.count = 0;
     // 3. 取出oldStorage所有元素
     oldStorage.forEach((bucket) => {
       if (bucket === null || bucket === undefined) return;
