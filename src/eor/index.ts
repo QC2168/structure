@@ -30,14 +30,14 @@
 let arr:number[] = [1, 1, 1, 1, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5];
 
 let eor = 0;
-for (let i = 0; i < res.length; i++) {
-  eor ^= res[i];
+for (let i = 0; i < arr.length; i++) {
+  eor ^= arr[i];
 }
 let right = eor & (~eor + 1);
 let oneAddTimes = 0;
-for (let i = 0; i < res.length; i++) {
-  if ((right & res[i]) != 0) {
-    oneAddTimes ^= res[i];
+for (let i = 0; i < arr.length; i++) {
+  if ((right & arr[i]) != 0) {
+    oneAddTimes ^= arr[i];
   }
 }
 console.log(oneAddTimes); // 3
@@ -56,3 +56,4 @@ console.log(oneAddTimes^eor); // 5
 // };
 
 // bit1Count(3); // 2
+export default void 0

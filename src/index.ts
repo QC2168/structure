@@ -2,8 +2,8 @@
 // require("./structure/linkedList/index")
 // require("./structure/hashTable/index")
 // require("./structure/tree/index")
-import './ar/findMax'
+// import './ar/findMax'
 
-import './sort/SortMerge'
+import './sort/index'
 // import './eor/index'
 // import './eor/index'

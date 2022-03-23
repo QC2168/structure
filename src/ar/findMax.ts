@@ -14,3 +14,4 @@ function findMax(arr:number[], left:number, right:number) {
 
 console.log(findMax(res, 0, res.length - 1));
 
+export default void 0
