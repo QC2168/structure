@@ -26,16 +26,16 @@
 // console.log(num); // 4
 
 // 一个数组中有两种数出现了奇数次，其他数都出现了偶数次，怎么找到并打印这两种数
-let arr = [1, 1, 1, 1, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5];
+let res= [1, 1, 1, 1, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5];
 let eor = 0;
-for (let i = 0; i < arr.length; i++) {
-  eor ^= arr[i];
+for (let i = 0; i < res.length; i++) {
+  eor ^= res[i];
 }
 let right = eor & (~eor + 1);
 let oneAddTimes = 0;
-for (let i = 0; i < arr.length; i++) {
-  if ((right & arr[i]) != 0) {
-    oneAddTimes ^= arr[i];
+for (let i = 0; i < res.length; i++) {
+  if ((right & res[i]) != 0) {
+    oneAddTimes ^= res[i];
   }
 }
 console.log(oneAddTimes); // 3
