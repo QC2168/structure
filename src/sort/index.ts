@@ -41,6 +41,15 @@ class Sort {
     }
     return arr
   }
+
+  // 归并排序
+  static MergeSort(){}
+  // 快速排序
+  static QuickSort(){}
+  // 堆排序
+  static HeapSort(){}
+  // 桶排序
+  static BucketSort(){}
 }
 
 // test
