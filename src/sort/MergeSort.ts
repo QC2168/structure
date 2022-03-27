@@ -40,16 +40,28 @@
 // console.log(aa);
 // export default void 0
 
-function merge<T=number>(leftArr:T,rightArr:T){
-  let help=[]
-  while()
+function merge(leftArr:number[],rightArr:number[]):number[]{
+  let help:number[]=[]
+  while(leftArr.length&&rightArr.length){
+    if(leftArr[0]<=rightArr[0]){
+      help.push(leftArr.shift() as number)
+    }else{
+      help.push(rightArr.shift() as number)
+    }
+  }
+  return [...help,...leftArr,...rightArr]
 
 
 }
 
-function mergeSort<T=number>(arr:T[]){
-  let mid:number = arr.length>>2
-  let leftArr=arr.slice(0,mid)
-  let rightArr=arr.slice(mid+1)
-  return merge(leftArr,rightArr)
+function mergeSort(arr:number[]):number[]{
+  if(arr.length===1){
+    return arr
+  }
+  let mid:number = arr.length>>1
+  let leftArr:number[]=arr.slice(0,mid)
+  let rightArr:number[]=arr.slice(mid)
+  return merge(mergeSort(leftArr),mergeSort(rightArr))
 }
+
+console.log(mergeSort([2,5,4,3,1,2]));

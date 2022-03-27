@@ -24,7 +24,7 @@ module.exports = {
   plugins: [
     // new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title: "Hot Module Replacement",
+      title: "Structure",
     })
   ],
   output: {
