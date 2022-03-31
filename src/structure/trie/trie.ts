@@ -1,39 +1,62 @@
+// 节点 pass 
+// pass 当前有多少个值通过了这个节点
+// end 当前节点是否有以这个节点结尾的单词
+// next 使用Map标记后续的节点，
 class TNode {
   pass: number;
   end: number;
-  val: string;
-  constructor(val: string) {
+  next: Map<string, TNode>;
+  constructor() {
     this.pass = 0;
     this.end = 0;
-    this.val = val;
+    this.next = new Map();
   }
 }
 
-class Trie {
-  root: TNode | null;
+export default class Trie {
+  root: TNode;
   constructor() {
-    this.root = null;
+    this.root = new TNode();
   }
 
-  // 创建一个头
-  insert(word: string) {
-    let words = word.split("");
-    for (let i: number = 0; i < words.length - 1; i++) {
+  // 插入
+  insert(word: string): void {
+    if (word.length === 0) {
+      return;
+    }
+    let cur: TNode = this.root
+    for (let i: number = 0; i < word.length; i++) {
       // 判断当前节点是否有 word i的路
-      if (this.root === null) {
-        this.root = new TNode(words[i]);
-        this.root.pass++;
-        if (i === words.length - 1) this.root.end++;
-      } else {
-        // 判断当前节点是否有 word i的路
-        if (words[0] === this.root.val) {
-            
-        }
+      if (!cur.next.has(word[i])) {
+        cur.next.set(word[i], new TNode())
       }
+      let node = cur.next.get(word[i]) as TNode
+      node.pass++
+      if (i === word.length - 1) node.end++
+      cur = node
     }
   }
-}
 
-const rr: string[] = ["abc", "abd"];
-const t = new Trie();
-t.insert("abc");
+  // 查找
+  search(word: string): boolean {
+    let cur: TNode = this.root
+    for (let i: number = 0; i < word.length; i++) {
+      if (cur.next.get(word[i])) {
+        cur = cur.next.get(word[i]) as TNode
+        if (i === word.length - 1 && cur.end > 0) return true
+      }
+    }
+    return false
+
+  }
+
+  // 查找是否有指定字符串开头的
+  startsWith(word: string): boolean {
+    let cur: TNode = this.root
+    for (let i: number = 0; i < word.length; i++) {
+      if (!cur.next.get(word[i])) return false
+      cur = cur.next.get(word[i]) as TNode
+    }
+    return true
+  }
+}

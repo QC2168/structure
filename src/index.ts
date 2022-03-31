@@ -6,6 +6,7 @@
 
 // import './sort/index'
 // import './sort/MergeSort'
-import './structure/heap'
+// import './structure/heap'
+import './structure/trie'
 // import './eor/index'
 // import './eor/index'
