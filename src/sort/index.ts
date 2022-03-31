@@ -50,6 +50,18 @@ class Sort {
   static HeapSort(){}
   // 桶排序
   static BucketSort(){}
+  // 计数排序
+  static CountSort(arr:number[]){
+    let bucket=new Object()
+    for(let i=0;i<arr.length-1; i++){
+        if(bucket.hasOwnProperty(arr[i])){
+          bucket[arr[i]]++
+        }else{
+          bucket[arr[i]]=1
+        }
+    }
+    console.log(bucket);
+  }
 }
 
 // test
