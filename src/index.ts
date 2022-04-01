@@ -4,9 +4,9 @@
 // require("./structure/tree/index")
 // import './ar/findMax'
 
-// import './sort/index'
+import './sort'
 // import './sort/MergeSort'
 // import './structure/heap'
-import './structure/trie'
+// import './structure/trie'
 // import './eor/index'
 // import './eor/index'
