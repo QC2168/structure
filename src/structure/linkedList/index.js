@@ -4,15 +4,15 @@ import {reverseDoubleList} from './reverseList';
 import {removeVal} from './removeVal'
 
 // const linkedList =new LinkedList();
-const linkedList =new LinkedList();
-linkedList.append('aaa')
-linkedList.append('aaa')
-linkedList.append('bbb')
-linkedList.append('ccc')
-linkedList.append('ccc')
-linkedList.append('ccc')
-console.log(linkedList)
-console.log(removeVal(linkedList.head,'aaa'));
+// const linkedList =new LinkedList();
+// linkedList.append('aaa')
+// linkedList.append('aaa')
+// linkedList.append('bbb')
+// linkedList.append('ccc')
+// linkedList.append('ccc')
+// linkedList.append('ccc')
+// console.log(linkedList)
+// console.log(removeVal(linkedList.head,'aaa'));
 
 // console.log(reverseList(linkedList.head));
 // linkedList.insert(1,'abc')
@@ -24,3 +24,6 @@ console.log(removeVal(linkedList.head,'aaa'));
 // console.log(linkedList.update(1,'111111'))
 // console.log(linkedList.isEmpty())
 // console.log(linkedList.size())
+
+
+// 回文
