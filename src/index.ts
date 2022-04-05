@@ -1,5 +1,6 @@
 // require("./structure/stack/index")
-require("./structure/linkedList/isPalindrome")
+require("./structure/queue/index")
+// require("./structure/linkedList/isPalindrome")
 // require("./structure/hashTable/index")
 // require("./structure/tree/index")
 // import './ar/findMax'
