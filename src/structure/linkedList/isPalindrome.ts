@@ -1,16 +1,8 @@
 import { LinkedList } from "./linkedList"
 import { reverseList } from "./reverseList"
 
-// class ListNode {
-//     val: number
-//     next: ListNode | null
-//     constructor(val?: number, next?: ListNode | null) {
-//         this.val = (val === undefined ? 0 : val)
-//         this.next = (next === undefined ? null : next)
-//     }
-// }
 class ListNode {
-    element: number
+    element: number|string
     next: ListNode | null
     constructor(element?: number, next?: ListNode | null) {
         this.element = (element === undefined ? 0 : element)

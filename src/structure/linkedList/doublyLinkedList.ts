@@ -1,19 +1,21 @@
-import { LinkedList, Node } from "./linkedList";
-class DoublyNode extends Node {
-  constructor(element) {
+import { LinkedList,  ListNode} from "./linkedList";
+class DoublyNode extends ListNode {
+  prev:DoublyNode|null
+  constructor(element:string) {
     super(element);
     this.prev = null;
   }
 }
 
 export class DoublyLinkedList extends LinkedList {
+  tail:DoublyNode|null
   constructor() {
     super();
     this.tail = null;
   }
 
   // - append（element） 向列表尾部添加一个新的项
-  append(element) {
+  append(element:string) {
     // 1.创建元素
     const newNode = new DoublyNode(element);
     // 2.追加元素
@@ -21,14 +23,14 @@ export class DoublyLinkedList extends LinkedList {
       this.head = newNode;
       this.tail = newNode;
     } else {
-      this.tail.next = newNode;
+      this.tail!.next = newNode;
       newNode.prev = this.tail;
       this.tail = newNode;
     }
     this.length++;
   }
   // - insert（position，element）向列表的特定位置插入一个新的项
-  insert(position, element) {
+  insert(position:number, element:string) {
     // 1.判断越界
     if (position < 0 || position > this.length) return false;
 
@@ -72,7 +74,7 @@ export class DoublyLinkedList extends LinkedList {
   // - indexOf（element）返回元素在列表中的索引。如果列表中没有该元素返回-1
   // - update（position，element）修改某个位置的元素
   // - removeAt（position）从列表的特定位置移除一项
-  removeAt(position) {
+  removeAt(position:number) {
     //
     if (position < 0 || position === this.length - 1) return null;
     // 不同情况

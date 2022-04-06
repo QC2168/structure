@@ -1,24 +1,26 @@
-export const reverseList = (head) => {
+import { ListNode } from "./linkedList";
+
+export const reverseList = (head:ListNode) => {
   let next = null;
   let pre = null;
   while (head !== null) {
     next = head.next;
     head.next = pre;
     pre = head;
-    head = next;
+    head = next as ListNode;
   }
   return pre;
 };
 
-export const reverseDoubleList = (head) => {
+export const reverseDoubleList = (head:ListNode) => {
   let next = null;
   let pre = null;
   while (head !== null) {
     next = head.next;
     head.next = pre;
-    head.last = next;
+    head.last = next as ListNode;
     pre = head;
-    head = next;
+    head = next as ListNode;
   }
   return pre;
 };
