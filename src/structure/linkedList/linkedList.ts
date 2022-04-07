@@ -1,7 +1,7 @@
 export class ListNode {
   element: string|number;
   next: ListNode | null;
-  constructor(el: string) {
+  constructor(el: string|number) {
     // 保存元素
     this.element = el;
     // 指向下一个节点
@@ -18,10 +18,9 @@ export class LinkedList {
   }
 
   // - append（element） 向列表尾部添加一个新的项
-  append(el:string) {
+  append(el:string|number) {
     // 根据element创建node对象
     const newNode = new ListNode(el);
-
     // 追加到最后
     if (!this.head) {
       this.head = newNode;
@@ -35,7 +34,7 @@ export class LinkedList {
     this.length++;
   }
   // - insert（position，element）向列表的特定位置插入一个新的项
-  insert(position:number, el:string) {
+  insert(position:number, el:string|number) {
     //判断越界问题
     if (position < 0 || position > this.length) return false;
     // 根据element创建node对象
@@ -47,14 +46,14 @@ export class LinkedList {
     } else {
       let index = 0;
       // 当前
-      let current = this.head as ListNode;
+      let current:ListNode|null= this.head;
       // 上一个元素
-      let pervious = null;
-      while (index++ < position && current.next!==null) {
+      let pervious :ListNode;
+      while (index++ < position&&current != null&& current.next!==null) {
         pervious = current;
         current = current.next;
       }
-      pervious.next = newNode;
+      pervious!.next = newNode;
       newNode.next = current;
     }
     this.length++;
@@ -67,10 +66,10 @@ export class LinkedList {
     // 查询该位置的元素
     let current = this.head;
     let index = 0;
-    while (index++ < position) {
+    while (index++ < position && current!==null) {
       current = current.next;
     }
-    return current.element;
+    return current!.element;
   }
   // - indexOf（element）返回元素在列表中的索引。如果列表中没有该元素返回-1
   indexOf(element:string) {
@@ -100,19 +99,19 @@ export class LinkedList {
     // 2 删除元素
     let current = this.head;
     // 3 上一个
-    let pervious = null;
+    let pervious: ListNode|null= null;
     let index = 0;
-    if (position === 0) {
+    if (position === 0 && current!==null&& current.next!==null) {
       this.head = current.next;
     } else {
-      while (index++ < position) {
+      while (index++ < position&& current!==null&& current.next!==null) {
         pervious = current;
         current = current.next;
       }
-      pervious.next = current.next;
+      pervious!.next = current!.next;
     }
     this.length--;
-    return current.element;
+    return current!.element;
   }
   // - remove（element）从列表中移除一项
   remove(element:string) {

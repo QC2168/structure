@@ -33,7 +33,7 @@ export default function isPalindrome(head: ListNode | null) {
     // 找到前半部分链表的尾节点。
     let mid = slow
     // 反转后面的链表
-    let reList = reverseList(mid.next)
+    let reList = reverseList(mid.next!)
     let n1 = head
     let n2 = reList
     while (n2 !== null) {
@@ -45,7 +45,7 @@ export default function isPalindrome(head: ListNode | null) {
     }
 
     // 恢复链表
-    mid.next = reverseList(reList)
+    mid.next = reverseList(reList!)
     console.log(head);
     return true
 };
