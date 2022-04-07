@@ -43,25 +43,25 @@ export default class Sort {
   }
 
   // 归并排序
-  static merge(leftArr: number[], rightArr: number[]): number[] {
-    let help: number[] = []
+  static merge<T=number>(leftArr: T[], rightArr: T[]): T[] {
+    let help: T[] = []
     while (leftArr.length && rightArr.length) {
         if (leftArr[0] <= rightArr[0]) {
-            help.push(leftArr.shift() as number)
+            help.push(leftArr.shift() as T)
         } else {
-            help.push(rightArr.shift() as number)
+            help.push(rightArr.shift() as T)
         }
     }
     return [...help, ...leftArr, ...rightArr]
 }
 
-  static mergeSort(arr: number[]): number[] {
+  static mergeSort<T=number>(arr: T[]): T[] {
     if (arr.length === 1) {
         return arr
     }
     let mid: number = arr.length >> 1
-    let leftArr: number[] = arr.slice(0, mid)
-    let rightArr: number[] = arr.slice(mid)
+    let leftArr: T[] = arr.slice(0, mid)
+    let rightArr: T[] = arr.slice(mid)
     return Sort.merge(Sort.mergeSort(leftArr), Sort.mergeSort(rightArr))
 }
 
