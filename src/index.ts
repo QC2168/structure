@@ -1,7 +1,8 @@
 // require("./structure/stack/index")
 // require("./structure/queue/index")
 // require("./structure/linkedList/getIntersectionNode")
-require("./structure/linkedList/index")
+// require("./structure/linkedList/index")
+require("./structure/linkedList/linkedListSort")
 // require("./structure/hashTable/index")
 // require("./structure/tree/index")
 // import './ar/findMax'

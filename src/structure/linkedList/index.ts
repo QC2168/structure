@@ -3,10 +3,13 @@ import {LinkedList} from './linkedList'
 import {reverseDoubleList} from './reverseList';
 import {removeVal} from './removeVal'
 
-const linkedList =new LinkedList();
+const linkedList =new DoublyLinkedList();
 // const linkedList =new LinkedList();
-linkedList.append('aaa')
-console.log(linkedList);
+// linkedList.append('aaa')
+// linkedList.append('abc')
+// linkedList.append('vv')
+// linkedList.insert(1,'ddd')
+// console.log(linkedList);
 
 // linkedList.append('aaa')
 // linkedList.append('bbb')
