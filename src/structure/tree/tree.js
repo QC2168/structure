@@ -130,7 +130,6 @@ export class BinarySearchTree {
     // 如果当前的key的值不等于目标值 继续循环
     // debugger;
     while (current.key !== key) {
-      
       parent = current;
       if (key < current.key) {
         isLeftChild = true;
@@ -174,47 +173,44 @@ export class BinarySearchTree {
       } else {
         parent.right = current.right;
       }
-    }else{
+    } else {
       // 两个节点
       // 获取后继节点
       let successor = this.getSuccessor(current);
 
       // 2 判断是否根节点
-      if(this.root === current){
-        this.root=successor;
-
-      }else if(isLeftChild){
-        parent.left=successor;
-      }else{
-        parent.right=successor
+      if (this.root === current) {
+        this.root = successor;
+      } else if (isLeftChild) {
+        parent.left = successor;
+      } else {
+        parent.right = successor;
       }
 
-      successor.left=current.left;
+      successor.left = current.left;
     }
 
     return true;
   }
 
-  getSuccessor(delNode){
+  getSuccessor(delNode) {
     // sign data
-    let successerParent=delNode;
-    let successer=delNode;
-    let current=delNode.right;
-
+    let successesParent = delNode;
+    let successes = delNode;
+    let current = delNode.right;
 
     // 2 seek node
-    while(current!==null){
-      successerParent=successer;
-      successer=current;
-      current=current.left;
+    while (current !== null) {
+      successesParent = successes;
+      successes = current;
+      current = current.left;
     }
-
 
     // 3.如果后继节点不是删除节点的右节点
-    if(successer!=delNode.right){
-      successerParent.left=successer.right;
-      successer.right=delNode.right
+    if (successes !== delNode.right) {
+      successesParent.left = successes.right;
+      successes.right = delNode.right;
     }
-    return successer;
+    return successes;
   }
 }

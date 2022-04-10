@@ -11,7 +11,7 @@ like.append(1);
 like.append(2);
 like.append(6);
 
-export const linkedListSort = (head: ListNode | null) => {
+export const linkedListSort = (head: ListNode | null):ListNode | null => {
   // 将链表的数据取出来
   let cur: ListNode | null = head;
   let bucket: number[] = [];
@@ -30,6 +30,6 @@ export const linkedListSort = (head: ListNode | null) => {
     cur.next=newNode;
     cur=cur.next
   }
-  console.log(head);
+return head
 };
 linkedListSort(like.head);

@@ -1,4 +1,3 @@
-
 export default class Sort {
   // 选择排序
   static SelectionSort<T = number>(arr: T[]) {
@@ -14,7 +13,7 @@ export default class Sort {
       arr[i] = arr[minIndex];
       arr[minIndex] = temp;
     }
-    return arr
+    return arr;
   }
   // 冒泡排序
   static BubbleSort<T = number>(arr: T[]) {
@@ -28,7 +27,7 @@ export default class Sort {
         }
       }
     }
-    return arr
+    return arr;
   }
   // 插入排序
   static InsertSort<T = number>(arr: T[]) {
@@ -39,57 +38,55 @@ export default class Sort {
         arr[j] = temp;
       }
     }
-    return arr
+    return arr;
   }
 
   // 归并排序
-  static merge<T=number>(leftArr: T[], rightArr: T[]): T[] {
-    let help: T[] = []
+  static merge<T = number>(leftArr: T[], rightArr: T[]): T[] {
+    let help: T[] = [];
     while (leftArr.length && rightArr.length) {
-        if (leftArr[0] <= rightArr[0]) {
-            help.push(leftArr.shift() as T)
-        } else {
-            help.push(rightArr.shift() as T)
-        }
+      if (leftArr[0] <= rightArr[0]) {
+        help.push(leftArr.shift() as T);
+      } else {
+        help.push(rightArr.shift() as T);
+      }
     }
-    return [...help, ...leftArr, ...rightArr]
-}
+    return [...help, ...leftArr, ...rightArr];
+  }
 
-  static mergeSort<T=number>(arr: T[]): T[] {
+  static mergeSort<T = number>(arr: T[]): T[] {
     if (arr.length === 1) {
-        return arr
+      return arr;
     }
-    let mid: number = arr.length >> 1
-    let leftArr: T[] = arr.slice(0, mid)
-    let rightArr: T[] = arr.slice(mid)
-    return Sort.merge(Sort.mergeSort(leftArr), Sort.mergeSort(rightArr))
-}
+    let mid: number = arr.length >> 1;
+    let leftArr: T[] = arr.slice(0, mid);
+    let rightArr: T[] = arr.slice(mid);
+    return Sort.merge(Sort.mergeSort(leftArr), Sort.mergeSort(rightArr));
+  }
 
   // 快速排序
-  static QuickSort(){}
+  static QuickSort() {}
   // 堆排序
-  static HeapSort(){}
+  static HeapSort() {}
   // 桶排序
-  static BucketSort(){}
+  static BucketSort() {}
   // 计数排序
-  static CountSort(arr:number[]){
-    let bucket:{[key:string]:number}={}
-    for(let i:number=0;i<arr.length; i++){
-        if(bucket.hasOwnProperty(arr[i])){
-          bucket[arr[i]]++
-        }else{
-          bucket[arr[i]]=1
-        }
+  static CountSort(arr: number[]) {
+    let bucket: { [key: string]: number } = {};
+    for (let i: number = 0; i < arr.length; i++) {
+      if (bucket.hasOwnProperty(arr[i])) {
+        bucket[arr[i]]++;
+      } else {
+        bucket[arr[i]] = 1;
+      }
     }
     // 把这些数据导出来
-    const res=[]
-    for(let i=0;i<bucket.length;i++){
+    const res = [];
+    for (let i = 0; i < bucket.length; i++) {
       console.log(bucket[i]);
-      
     }
 
     console.log(bucket);
-    
   }
 }
 
