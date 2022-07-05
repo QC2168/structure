@@ -6,7 +6,8 @@
 // require("./structure/hashTable/index")
 // require("./structure/tree/index")
 // require('./ar/统计各位数字都不同的数字个数')
-import './ar/Squares of a Sorted Array'
+// import './ar/Squares of a Sorted Array'
+import './ar/三数之和'
 
 // import './sort'
 // import './sort/MergeSort'
