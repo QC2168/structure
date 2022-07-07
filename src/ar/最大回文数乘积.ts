@@ -44,4 +44,5 @@ function largestPalindrome(n: number): number {
   if (n == 43) return 9;
   if (n == 44) return 9;
   if (n == 45) return 9;
+  return -1
 }
