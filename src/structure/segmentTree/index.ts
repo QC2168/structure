@@ -1,4 +1,4 @@
-class SegmentTree<T>{
+export default class SegmentTree<T>{
     private data: T[]
     private tree: T[]
     constructor(arr: T[]) {
@@ -8,9 +8,10 @@ class SegmentTree<T>{
         }
 
         this.tree = new Array(4 * arr.length)
+        debugger
         this.buildSegmentTree(0, 0, this.data.length - 1)
 
-        
+
     }
 
     // 构建treeIndex的位置创建表示区间[l...r]的线段树
@@ -22,8 +23,7 @@ class SegmentTree<T>{
 
         let leftTreeIndex = this.leftChild(treeIndex)
         let rightTreeIndex = this.rightChild(treeIndex)
-        // let mid = l + (r - l) / 2
-        let mid = (r - l) >> 1
+        let mid = l + ((r - l) >> 1);
 
         this.buildSegmentTree(leftTreeIndex, l, mid)
         this.buildSegmentTree(rightTreeIndex, mid + 1, r)
@@ -31,8 +31,30 @@ class SegmentTree<T>{
         this.tree[treeIndex] = this.merge(this.tree[leftTreeIndex], this.tree[rightTreeIndex])
     }
 
-    private merge(l:any, r:any) {
+    private merge(l: any, r: any) {
         return l + r
+    }
+
+    // 递归查询
+    // 以treeIndex根的线段树中【left...right】范围里搜索区间【queryLeft...queryRight】的值
+    public query(treeIndex:number, left:number, right:number, queryLeft:number, queryRight:number) {
+        if(left===queryLeft&&right===queryRight){
+            return this.tree[treeIndex]
+        }
+
+        // 求出当前查询范围中间值
+        const mid=left+(right-left) >> 1
+
+        // 如果没有中上面的判断，说明还要继续缩小范围
+        const leftChild=this.leftChild(treeIndex)
+        const rightChild=this.rightChild(treeIndex)
+
+        // 判断
+        /* 
+        1.从左子节点还是右子节点查询，还是同时查询
+        2.如果待查询的区间的左端点大于查询范围的中间值，说明只需要从右子树种进行查询即可
+        
+        */
     }
     public getSize() {
         return this.data.length
